@@ -16,16 +16,12 @@ connections for audio classification.
 Our process:
 
 - We prepare a dataset of speech samples from different speakers, with the speaker as label.
-- We add background noise to these samples to augment our data.
 - We take the FFT of these samples.
 - We train a 1D convnet to predict the correct speaker given a noisy FFT speech sample.
 
 Note:
 
 - This example should be run with TensorFlow 2.3 or higher, or `tf-nightly`.
-- The noise samples in the dataset need to be resampled to a sampling rate of 16000 Hz
-before using the code in this example. In order to do this, you will need to have
-installed `ffmpg`.
 """
 
 """
@@ -52,7 +48,6 @@ DATASET_ROOT = r"D:\speaker_recognition\dataset"
 
 # The folders in which we will put the audio samples and the noise samples
 AUDIO_SUBFOLDER = "audio"
-NOISE_SUBFOLDER = "noise"
 
 DATASET_AUDIO_PATH = os.path.join(DATASET_ROOT, AUDIO_SUBFOLDER)
 # DATASET_NOISE_PATH = os.path.join(DATASET_ROOT, NOISE_SUBFOLDER)
